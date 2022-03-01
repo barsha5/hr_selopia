@@ -19,7 +19,7 @@ class AllowanceCategoryController extends Controller
             $allowance_category = new AllowanceCategory($this->db);
             $allowance_category->add();
 
-            $this->f3->reroute('/success/New Category Added');
+            $this->f3->reroute('/allowanceCategory/success/New Category Added');
         } else
         {
             $this->f3->set('page_head','Allowance Category');
@@ -36,7 +36,7 @@ class AllowanceCategoryController extends Controller
         if($this->f3->exists('POST.update'))
         {
             $allowance_category->edit($this->f3->get('POST.id'));
-            $this->f3->reroute('/success/Category Updated');
+            $this->f3->reroute('/allowanceCategory/success/Category Updated');
         } else
         {
             $allowance_category->getById($this->f3->get('PARAMS.id'));
@@ -55,6 +55,6 @@ class AllowanceCategoryController extends Controller
             $allowance_category->delete($this->f3->get('PARAMS.id'));
         }
 
-        $this->f3->reroute('/success/Allowance Category Deleted');
+        $this->f3->reroute('/allowanceCategory/success/Allowance Category Deleted');
     }
 }

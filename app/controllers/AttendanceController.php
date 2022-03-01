@@ -18,7 +18,7 @@ class AttendanceController extends Controller {
             $attendance = new Attendance($this->db);
             $attendance->add();
 
-            $this->f3->reroute('/success/Attendance Counted');
+            $this->f3->reroute('/attendance/success/Attendance Counted');
         } else
         {
             $user = new User($this->db);
@@ -37,7 +37,7 @@ class AttendanceController extends Controller {
         if($this->f3->exists('POST.update'))
         {
             $attendance->edit($this->f3->get('POST.id'));
-            $this->f3->reroute('/success/Attendance Updated');
+            $this->f3->reroute('/attendance/success/Attendance Updated');
         } else
         {
             $attendance->getById($this->f3->get('PARAMS.id'));
@@ -58,7 +58,7 @@ class AttendanceController extends Controller {
             $attendance->delete($this->f3->get('PARAMS.id'));
         }
 
-        $this->f3->reroute('/success/Attendance Deleted');
+        $this->f3->reroute('/attendance/success/Attendance Deleted');
     }
 }
 

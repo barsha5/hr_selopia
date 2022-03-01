@@ -20,7 +20,7 @@ class OrganigramController extends Controller
             $organigram = new Organigram($this->db);
             $organigram->add();
 
-            $this->f3->reroute('/success/Added');
+            $this->f3->reroute('/organigram/success/Added');
         } else
         {
             $user = new User($this->db);
@@ -41,7 +41,7 @@ class OrganigramController extends Controller
         if($this->f3->exists('POST.update'))
         {
             $organigram->edit($this->f3->get('POST.id'));
-            $this->f3->reroute('/success/Organigram Data Updated');
+            $this->f3->reroute('/organigram/success/Organigram Data Updated');
         } else
         {
             $user = new User($this->db);
@@ -64,7 +64,7 @@ class OrganigramController extends Controller
             $organigram->delete($this->f3->get('PARAMS.id'));
         }
 
-        $this->f3->reroute('/success/Organigram Record Deleted');
+        $this->f3->reroute('/organigram/success/Organigram Record Deleted');
     }
 
 }

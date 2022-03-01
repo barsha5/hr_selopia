@@ -19,7 +19,7 @@ class DepartmentController extends Controller
             $department = new Department($this->db);
             $department->add();
 
-            $this->f3->reroute('/success/Department Added');
+            $this->f3->reroute('/department/success/Department Added');
         } else
         {
             $user = new User($this->db);
@@ -38,7 +38,7 @@ class DepartmentController extends Controller
         if($this->f3->exists('POST.update'))
         {
             $department->edit($this->f3->get('POST.id'));
-            $this->f3->reroute('/success/Department Data Updated');
+            $this->f3->reroute('/department/success/Department Data Updated');
         } else
         {
             $user = new User($this->db);
@@ -59,6 +59,6 @@ class DepartmentController extends Controller
             $department->delete($this->f3->get('PARAMS.id'));
         }
 
-        $this->f3->reroute('/success/Department Deleted');
+        $this->f3->reroute('/department/success/Department Deleted');
     }
 }

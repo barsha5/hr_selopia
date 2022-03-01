@@ -35,7 +35,7 @@ class TaDaController extends Controller
             $this->image_name = "defaultImage.jpg";
             $this->uploader();
             $tada->add($this->image_name);
-            $this->f3->reroute('/success/Added');
+            $this->f3->reroute('/tada/success/Added');
         } else {
             $user = new User($this->db);
             $this->f3->set('employee_drp_data',$user->all());
@@ -55,7 +55,7 @@ class TaDaController extends Controller
         if($this->f3->exists('POST.update'))
         {
             $tada->edit($this->f3->get('POST.id'));
-            $this->f3->reroute('/success/Allowance Data Updated');
+            $this->f3->reroute('/tada/success/Allowance Data Updated');
         } else
         {
             $user = new User($this->db);
@@ -78,7 +78,7 @@ class TaDaController extends Controller
             $tada->delete($this->f3->get('PARAMS.id'));
         }
 
-        $this->f3->reroute('/success/Allowance Deleted');
+        $this->f3->reroute('/tada/success/Allowance Deleted');
     }
 
 

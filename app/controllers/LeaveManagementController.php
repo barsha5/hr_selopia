@@ -20,7 +20,7 @@ class LeaveManagementController extends Controller
             $leave_management = new LeaveManagement($this->db);
             $leave_management->add();
 
-            $this->f3->reroute('/success/New Leave Added');
+            $this->f3->reroute('/leaveManagement/success/New Leave Added');
         } else
         {
             $user = new User($this->db);
@@ -39,7 +39,7 @@ class LeaveManagementController extends Controller
         if($this->f3->exists('POST.update'))
         {
             $leave_management->edit($this->f3->get('POST.id'));
-            $this->f3->reroute('/success/Leave Data Updated');
+            $this->f3->reroute('/leaveManagement/success/Leave Data Updated');
         } else
         {
             $user = new User($this->db);
@@ -60,7 +60,7 @@ class LeaveManagementController extends Controller
             $leave_management->delete($this->f3->get('PARAMS.id'));
         }
 
-        $this->f3->reroute('/success/Leave Record Deleted');
+        $this->f3->reroute('/leaveManagement/success/Leave Record Deleted');
     }
 
 
