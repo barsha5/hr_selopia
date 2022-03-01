@@ -1,0 +1,39 @@
+<form action="{{ @BASE.'/attendance/create' }}" method="post" class="form-horizontal">
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope icon-black"></i> Employee</span>
+        <select name="employee_id">
+            <repeat group="{{@employee_drp_data}}" value="{{@row}}">
+                <option value="{{@row.id}}" >{{@row.name}}</option>
+            </repeat>
+        </select>
+    </div>
+    <br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope icon-black"></i> Date</span>
+        <input type="date" id="date" name="date" value="" class="input-xlarge" />
+    </div>
+    <br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-headphones icon-black"></i> Time-in</span>
+        <input type="time" id="time_in" name="time_in" value="" class="input-xlarge" />
+    </div><br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on add-on-area "><i class="icon-home icon-black"></i> Time-out</span>
+        <input type="time" id="time_out" name="time_out" value="" class="input-xlarge" />
+    </div><br/><br/>
+    
+
+    <div class="control-group">
+        <div class="">
+            <input type="hidden" name="create" value="create" />
+            <button type="submit" class="btn btn-primary"><i class="icon-ok icon-white"></i> Add Attendance</button>
+        </div>
+    </div>
+
+</form>
+
+

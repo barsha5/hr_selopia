@@ -1,0 +1,41 @@
+<form action="{{ @BASE.'/department/update' }}" method="post" class="form-horizontal">
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-user icon-black"></i> Head </span>
+        <select name="department_head_id">
+            <repeat group="{{@employee_drp_data}}" value="{{@row}}">
+                <option value="{{@row.id}}"
+
+
+                <check if="{{ @POST.department_head_id==@row.id }}">
+                    selected
+                </check>
+
+
+                >{{@row.name}}</option>
+            </repeat>
+        </select>
+    </div><br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope icon-black"></i> Dept Name</span>
+        <input type="text" id="department_name" name="department_name" value="{{ @POST.department_name }}" class="input-xlarge" />
+    </div>
+    <br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-headphones icon-black"></i> Dept Initial</span>
+        <input type="text" id="department_initial" name="department_initial" value="{{ @POST.department_initial }}" class="input-xlarge" />
+    </div><br/><br/>
+
+
+
+    <div class="control-group">
+        <div class="">
+            <input type="hidden" name="id" value="{{ @POST.id }}" />
+            <input type="hidden" name="update" value="update" />
+            <button type="submit" class="btn btn-primary"><i class="icon-edit icon-white"></i> Update</button>
+        </div>
+    </div>
+
+</form>
