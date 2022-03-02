@@ -19,8 +19,8 @@
             <td><?= (trim($user['dob'])) ?></td>
             <td><?= (trim($user['identification'])) ?></td>
             <td><?= (trim($user['joining_date'])) ?></td>
-            <td><a href="<?= ($BASE.'/user/update/'. $user['id']) ?>" class="btn btn-primary"><i class="icon-edit icon-white"></i> Edit</a>
-                &nbsp; <a href="<?= ($BASE.'/user/delete/'. $user['id']) ?>" class="btn btn-danger"><i class="icon-remove icon-white"></i>
+            <td><a href="<?= ($BASE.'/employee/update/'. $user['id']) ?>" class="btn btn-primary"><i class="icon-edit icon-white"></i> Edit</a>
+                &nbsp; <a href="<?= ($BASE.'/employee/delete/'. $user['id']) ?>" class="btn btn-danger"><i class="icon-remove icon-white"></i>
                     Delete</a></td>
 
         </tr>

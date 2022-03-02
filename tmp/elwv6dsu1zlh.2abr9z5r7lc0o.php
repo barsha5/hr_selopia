@@ -1,0 +1,25 @@
+<table width="600" cellpadding="5" class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time-in</th>
+        <th scope="col">Time-out</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <?php foreach (($attendances?:[]) as $attendance): ?>
+        <tr>
+            <td><?= (trim($attendance['employee_name'])) ?></td>
+            <td><?= (trim($attendance['date'])) ?></td>
+            <td><?= (trim($attendance['time_in'])) ?></td>
+            <td><?= (trim($attendance['time_out'])) ?></td>
+            <td><a href="<?= ($BASE.'/attendance/update/'. $attendance['id']) ?>" class="btn btn-primary"><i class="icon-edit icon-white"></i> Edit</a>
+                &nbsp; <a href="<?= ($BASE.'/attendance/delete/'. $attendance['id']) ?>" class="btn btn-danger"><i class="icon-remove icon-white"></i>
+                    Delete</a></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+
+</table>

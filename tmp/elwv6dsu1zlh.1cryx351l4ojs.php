@@ -1,0 +1,71 @@
+<form action="<?= ($BASE.'/organigram/update') ?>" method="post" class="form-horizontal">
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-user icon-black"></i> name </span>
+        <select name="employee_id">
+            <?php foreach (($employee_drp_data?:[]) as $row): ?>
+                <option value="<?= ($row['id']) ?>"
+
+
+                <?php if ($POST['employee_id']==$row['id']): ?>
+                    selected
+                <?php endif; ?>
+
+
+                ><?= ($row['name']) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div><br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope icon-black"></i> Designation</span>
+        <input type="text" id="designation" name="designation" value="<?= ($POST['designation']) ?>" class="input-xlarge" />
+    </div>
+    <br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-user icon-black"></i>Department</span>
+        <select name="department_id">
+            <?php foreach (($department_drp_data?:[]) as $row): ?>
+                <option value="<?= ($row['id']) ?>"
+
+
+                <?php if ($POST['department_id']==$row['id']): ?>
+                    selected
+                <?php endif; ?>
+
+
+                ><?= ($row['department_name']) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div><br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-user icon-black"></i> Manager </span>
+        <select name="manager_id">
+            <?php foreach (($employee_drp_data?:[]) as $row): ?>
+                <option value="<?= ($row['id']) ?>"
+
+
+                <?php if ($POST['manager_id']==$row['id']): ?>
+                    selected
+                <?php endif; ?>
+
+
+                ><?= ($row['name']) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div><br/><br/>
+
+
+
+
+    <div class="control-group">
+        <div class="">
+            <input type="hidden" name="id" value="<?= ($POST['id']) ?>" />
+            <input type="hidden" name="update" value="update" />
+            <button type="submit" class="btn btn-primary"><i class="icon-edit icon-white"></i> Update</button>
+        </div>
+    </div>
+
+</form>

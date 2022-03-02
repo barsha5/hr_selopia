@@ -2,11 +2,13 @@
     <div class="navbar-inner">
         <ul class="nav">
 
-            <?php if ($page_head == 'Employee List'): ?>
-            <li <?php if ($page_head == 'Employee List'): ?>class="active"<?php endif; ?>><a href="<?= ($BASE.'/') ?>"><i class="icon-th icon-black"></i> Read</a></li>
-            <li <?php if ($page_head == 'Create User'): ?>class="active"<?php endif; ?>><a href="<?= ($BASE.'/user/create') ?>"><i class="icon-plus-sign icon-black"></i> Create</a></li>
 
-                <?php if ($page_head == 'Update User'): ?>
+
+            <?php if ($page_head == 'Employee List'): ?>
+            <li <?php if ($page_head == 'Employee List'): ?>class="active"<?php endif; ?>><a href="<?= ($BASE.'/employee') ?>"><i class="icon-th icon-black"></i> Read</a></li>
+            <li <?php if ($page_head == 'Add New Employee'): ?>class="active"<?php endif; ?>><a href="<?= ($BASE.'/employee/create') ?>"><i class="icon-plus-sign icon-black"></i> Create</a></li>
+
+                <?php if ($page_head == 'Update Employee Info'): ?>
                     <li class="active"><a href="javascript:void(0);"><i class="icon-plus-sign icon-black"></i> Update</a></li>
                 <?php endif; ?>
 
@@ -72,11 +74,6 @@
                 <?php endif; ?>
 
             <?php endif; ?>
-
-
-
-
-
 
         </ul>
     </div>

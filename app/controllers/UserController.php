@@ -18,10 +18,10 @@ class UserController extends Controller {
             $user = new User($this->db);
             $user->add();
 
-            $this->f3->reroute('/success/New User Created');
+            $this->f3->reroute('/employee/success/New User Created');
         } else
         {
-            $this->f3->set('page_head','Create User');
+            $this->f3->set('page_head','Add New Employee');
             $this->f3->set('view','user/create.htm');
         }
 
@@ -35,12 +35,12 @@ class UserController extends Controller {
         if($this->f3->exists('POST.update'))
         {
             $user->edit($this->f3->get('POST.id'));
-            $this->f3->reroute('/success/User Updated');
+            $this->f3->reroute('/employee/success/User Updated');
         } else
         {
             $user->getById($this->f3->get('PARAMS.id'));
             $this->f3->set('user',$user);
-            $this->f3->set('page_head','Update User');
+            $this->f3->set('page_head','Update Employee Info');
             $this->f3->set('view','user/update.htm');
         }
 
@@ -54,6 +54,6 @@ class UserController extends Controller {
             $user->delete($this->f3->get('PARAMS.id'));
         }
 
-        $this->f3->reroute('/success/User Deleted');
+        $this->f3->reroute('/employee/success/User Deleted');
     }
 }

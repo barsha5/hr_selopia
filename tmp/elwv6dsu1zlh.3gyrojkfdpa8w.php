@@ -11,16 +11,19 @@
 
     <body>
 
+
+
         <div class="container">
             <div class="btn-toolbar">
                 <div class="btn-group">
-                    <a class="btn" href="<?= ($BASE.'/') ?>">Employee</a>
+                    <a class="btn" href="<?= ($BASE.'/employee') ?>">Employee</a>
                     <a class="btn" href="<?= ($BASE.'/department') ?>">Department</a>
                     <a class="btn" href="<?= ($BASE.'/attendance') ?>">Attendance</a>
                     <a class="btn" href="<?= ($BASE.'/allowanceCategory') ?>">Add Allowance Category</a>
                     <a class="btn" href="<?= ($BASE.'/leaveManagement') ?>">Leave Management</a>
                     <a class="btn" href="<?= ($BASE.'/organigram') ?>">Organigram</a>
                     <a class="btn" href="<?= ($BASE.'/tada') ?>">Allowance Record</a>
+                    <a class="btn" href="<?= ($BASE.'/logout') ?>">Log out</a>
                 </div>
             </div>
 

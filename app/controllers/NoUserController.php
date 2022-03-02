@@ -1,20 +1,16 @@
 <?php
 
-class Controller {
+class NoUserController {
 
 	protected $f3;
 	protected $db;
 
 	function beforeroute() {
-        new Session();
-        if( !($this->f3->exists('SESSION.isLoggedIn') && $this->f3->get('SESSION.isLoggedIn') == TRUE ) ) {
-            $this->f3->reroute('/');
-        }
 		$this->f3->set('message','');
 	}
 
 	function afterroute() {
-		echo Template::instance()->render('layout.htm');	
+		echo Template::instance()->render('login.html');
 	}
 
 	function __construct() {

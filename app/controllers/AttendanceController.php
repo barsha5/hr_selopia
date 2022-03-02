@@ -6,7 +6,7 @@ class AttendanceController extends Controller {
     {
         $attendance = new Attendance($this->db);
         $this->f3->set('attendances',$attendance->all());
-        $this->f3->set('page_head','Selopia Attendance List');
+        $this->f3->set('page_head','Attendance List');
         $this->f3->set('message', $this->f3->get('PARAMS.message'));
         $this->f3->set('view','user/attendance_list.htm');
 	}
