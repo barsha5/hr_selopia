@@ -14,7 +14,8 @@ class Controller {
 	}
 
 	function afterroute() {
-		echo Template::instance()->render('layout.htm');	
+		echo Template::instance()->render('layout.htm');
+        $this->f3->set( 'SESSION.validator_errors', '' );
 	}
 
 	function __construct() {
@@ -30,4 +31,11 @@ class Controller {
 		$this->f3=$f3;
 		$this->db=$db;
 	}
+
+    protected function validator(array $data = [], array $rules = []) {
+
+        $validator = \Validator::instance();
+        return count($rules) <=0 ? $validator : $validator->validate($data, $rules);
+    }
+
 }

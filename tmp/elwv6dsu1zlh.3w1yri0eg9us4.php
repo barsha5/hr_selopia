@@ -1,0 +1,32 @@
+<form action="<?= ($BASE.'/department/create') ?>" method="post" class="form-horizontal">
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope icon-black"></i>Dept Name</span>
+        <input type="text" id="department_name" name="department_name" value="" class="input-xlarge" />
+    </div>
+    <br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-headphones icon-black"></i>Dept Initial</span>
+        <input type="text" id="department_initial" name="department_initial" value="" class="input-xlarge" />
+    </div><br/><br/>
+
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope icon-black"></i>Dept Head</span>
+        <select name="department_head_id">
+            <?php foreach (($employee_drp_data?:[]) as $row): ?>
+                <option value="<?= ($row['id']) ?>" ><?= ($row['name']) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <br/><br/>
+
+
+    <div class="control-group">
+        <div class="">
+            <input type="hidden" name="create" value="create" />
+            <button type="submit" class="btn btn-primary"><i class="icon-ok icon-white"></i> Add New Department</button>
+        </div>
+    </div>
+
+</form>

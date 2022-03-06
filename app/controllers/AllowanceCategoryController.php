@@ -16,10 +16,19 @@ class AllowanceCategoryController extends Controller
     {
         if($this->f3->exists('POST.create'))
         {
-            $allowance_category = new AllowanceCategory($this->db);
-            $allowance_category->add();
-
-            $this->f3->reroute('/allowanceCategory/success/New Category Added');
+            $data = $this->f3->get('POST');
+            $validator = $this->validator($data, array(
+                'category_name'   => 'required|min:2|max:100|alpha_dash'
+            ));
+            if($validator->passed()) {
+                $allowance_category = new AllowanceCategory($this->db);
+                $allowance_category->add();
+                $this->f3->reroute('/allowanceCategory/success/New Category Added');
+            } else {
+                $errors = implode( '<br>', $validator->errors() );
+                $this->f3->set( 'SESSION.validator_errors', $errors );
+                $this->f3->reroute('/allowanceCategory/create');
+            }
         } else
         {
             $this->f3->set('page_head','Allowance Category');

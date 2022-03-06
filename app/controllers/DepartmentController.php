@@ -16,10 +16,21 @@ class DepartmentController extends Controller
     {
         if($this->f3->exists('POST.create'))
         {
-            $department = new Department($this->db);
-            $department->add();
-
-            $this->f3->reroute('/department/success/Department Added');
+            $data = $this->f3->get('POST');
+            $validator = $this->validator($data, array(
+                'department_name'   => 'required|min:4|max:50|alpha_dash',
+                'department_initial'   => 'required|min:3|max:4|alpha',
+                'department_head_id'   => 'required|min:1|max:5|int',
+            ));
+            if($validator->passed()) {
+                $department = new Department($this->db);
+                $department->add();
+                $this->f3->reroute('/department/success/Department Added');
+            } else {
+                $errors = implode( '<br/>', $validator->errors() );
+                $this->f3->set( 'SESSION.validator_errors', $errors );
+                $this->f3->reroute('/department/create');
+            }
         } else
         {
             $user = new User($this->db);

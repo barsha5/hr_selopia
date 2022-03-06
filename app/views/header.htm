@@ -33,6 +33,12 @@
 
             <include href="user/nav.htm" />
 
+
+           {{ @SESSION.validator_errors | raw }}
+
+
+
+
             <check if="{{ @message }}">
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>

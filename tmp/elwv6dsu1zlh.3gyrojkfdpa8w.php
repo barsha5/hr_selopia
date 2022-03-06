@@ -33,6 +33,13 @@
 
             <?php echo $this->render('user/nav.htm',NULL,get_defined_vars(),0); ?>
 
+
+           <?= ($this->raw($SESSION['validator_errors']))."
+" ?>
+
+
+
+
             <?php if ($message): ?>
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
